@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+.header {
+  color: #37A9DA;
+}
+
 body {
     width: 100vw;
     height: 100vh;

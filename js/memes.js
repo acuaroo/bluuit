@@ -10,9 +10,6 @@ function fetchMemes() {
     parentdiv = document.createElement("div");
     parentdiv.id = "memes";
   }
-
-  
-
   
   fetch(`https://www.reddit.com/r/memes.json?after=${after}`)
     .then((response) => response.json())
