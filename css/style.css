@@ -2,17 +2,21 @@
 
 .header {
   color: #37A9DA;
+
 }
 
 body {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    grid-row: 0% 90%;
+    
     background: #1f2329;
     color: white;
     font-family: 'PT Mono', monospace;
-  }
+}
+#memesHolder {
+  display: flex;
+  grid-row: 0% 90%;
+}
   #button {
     padding: 5px;
     cursor: pointer;

@@ -1,17 +1,20 @@
 var after = "";
 var on = false;
+const proxy = "https://api.allorigins.win/raw?url=";
 
 function fetchMemes() {
   let parentdiv;
+  let memesHolder = document.getElementById("memesHolder")
 
   if (document.getElementById("memes")) {
     parentdiv = document.getElementById("memes")
   } else {
     parentdiv = document.createElement("div");
     parentdiv.id = "memes";
+    memesHolder.appendChild(parentdiv)
   }
-  
-  fetch(`https://www.reddit.com/r/memes.json?after=${after}`)
+
+  fetch(`${proxy}https://www.reddit.com/r/memes.json?after=${after}`)
     .then((response) => response.json())
     
     .then((body) => {
