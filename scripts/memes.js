@@ -1,6 +1,5 @@
 var after = "";
 var on = false;
-function callback(data) {}
 
 
 function fetchMemes() {
@@ -13,39 +12,66 @@ function fetchMemes() {
     parentdiv = document.createElement("div");
     parentdiv.id = "memes";
     memesHolder.appendChild(parentdiv)
-  }
+  }   
+  axios.get('https://reddit-cors.milannair.repl.co/')
+    .then((response) => {
+        if(response.status === 200) {
+        const responses = response.data.data.children
+        console.log(response.data.data.children);
 
-  fetch(`https://reddit-cors.milannair.repl.co/`)
-    
-    .then((response) => response.json())
-    
-    .then((body) => {
-      alert("working!")
-      after = body.data.after;
-      for (let index = 0; index < body.data.children.length; index++) {
-        if (body.data.children[index].data.post_hint === "image") {
-          let div = document.createElement("div");
-          let a = document.createElement("a")
-          let h4 = document.createElement("h4");
-          let image = document.createElement("img");
-          a.href=body.data.children[index].data.url_overridden_by_dest;
-          image.src = body.data.children[index].data.url_overridden_by_dest;
-          h4.textContent = body.data.children[index].data.title+" | "+body.data.children[index].data.ups+" ⬆️"
-          div.appendChild(a);
-
-          a.appendChild(h4);
-          a.appendChild(image);
-          parentdiv.appendChild(div);
-          on = false;
-
+        for (let index = 0; index < responses.length; index++) {
+          if (responses[index].data.post_hint === "image") {
+            let div = document.createElement("div");
+            let a = document.createElement("a")
+            let h4 = document.createElement("h4");
+            let image = document.createElement("img");
+            a.href=responses[index].data.url_overridden_by_dest;
+            image.src = responses[index].data.url_overridden_by_dest;
+            h4.textContent = responses[index].data.title+" | "+responses[index].data.ups+" ⬆️"
+            div.appendChild(a);
+  
+            a.appendChild(h4);
+            a.appendChild(image);
+            parentdiv.appendChild(div);
+            on = false;
+  
+          }
         }
-      }
-      document.body.appendChild(parentdiv);
+        document.body.appendChild(parentdiv);
+    }
+    }, (error) => console.log(err) );
+
+  // fetch(`https://reddit-cors.milannair.repl.co/`)
+    
+  //   .then((response) => response.json())
+    
+  //   .then((body) => {
+  //     alert("working!")
+  //     after = body.data.after;
+  //     for (let index = 0; index < body.data.children.length; index++) {
+  //       if (body.data.children[index].data.post_hint === "image") {
+  //         let div = document.createElement("div");
+  //         let a = document.createElement("a")
+  //         let h4 = document.createElement("h4");
+  //         let image = document.createElement("img");
+  //         a.href=body.data.children[index].data.url_overridden_by_dest;
+  //         image.src = body.data.children[index].data.url_overridden_by_dest;
+  //         h4.textContent = body.data.children[index].data.title+" | "+body.data.children[index].data.ups+" ⬆️"
+  //         div.appendChild(a);
+
+  //         a.appendChild(h4);
+  //         a.appendChild(image);
+  //         parentdiv.appendChild(div);
+  //         on = false;
+
+  //       }
+  //     }
+  //     document.body.appendChild(parentdiv);
       
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+  //   })
+  //   .catch((e) => {
+  //     console.log(e);
+  //   });
 
 }
 
