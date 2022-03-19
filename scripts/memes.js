@@ -16,9 +16,11 @@ function fetchMemes() {
   }
 
   fetch(`https://reddit-cors.milannair.repl.co/`)
+    
     .then((response) => response.json())
     
     .then((body) => {
+      alert("working!")
       after = body.data.after;
       for (let index = 0; index < body.data.children.length; index++) {
         if (body.data.children[index].data.post_hint === "image") {
