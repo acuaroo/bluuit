@@ -39,7 +39,7 @@ function fetchMemes() {
         }
         document.body.appendChild(parentdiv);
     }
-    }, (error) => console.log(err) );
+    });
 
   // fetch(`https://reddit-cors.milannair.repl.co/`)
     
