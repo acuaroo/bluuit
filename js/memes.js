@@ -1,6 +1,6 @@
 var after = "";
 var on = false;
-const proxy = "https://api.allorigins.win/raw?url=";
+const proxy = "https://cors-anywhere.herokuapp.com/";
 
 function fetchMemes() {
   let parentdiv;
