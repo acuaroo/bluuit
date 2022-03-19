@@ -1,6 +1,7 @@
 var after = "";
 var on = false;
-const proxy = "https://cors-anywhere.herokuapp.com/";
+function callback(data) {}
+
 
 function fetchMemes() {
   let parentdiv;
@@ -14,7 +15,7 @@ function fetchMemes() {
     memesHolder.appendChild(parentdiv)
   }
 
-  fetch(`${proxy}https://www.reddit.com/r/memes.json?after=${after}`)
+  fetch(`https://reddit-cors.milannair.repl.co/`)
     .then((response) => response.json())
     
     .then((body) => {
