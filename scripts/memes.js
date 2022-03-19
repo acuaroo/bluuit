@@ -14,7 +14,7 @@ function fetchMemes() {
     memesHolder.appendChild(parentdiv)
   }   
   
-  axios.get(`https://www.reddit.com/r/memes.json?after=${after}`)
+  axios.get(`https://www.reddit.com/r/memes+dankmemes.json?limit=50&after=${after}`)
     .then((response) => {
         if(response.status === 200) {
         const responses = response.data.data.children
