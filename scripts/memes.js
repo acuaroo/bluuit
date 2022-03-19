@@ -13,6 +13,7 @@ function fetchMemes() {
     parentdiv.id = "memes";
     memesHolder.appendChild(parentdiv)
   }   
+  
   axios.get('https://reddit-cors.milannair.repl.co/')
     .then((response) => {
         if(response.status === 200) {
