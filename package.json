@@ -4,7 +4,7 @@
     "cors-anywhere": "^0.4.4",
     "express": "^4.17.3",
     "node-fetch": "^3.2.3",
-    "socket.io": "^4.4.1"
+    "socket.io": "^4.6.1"
   },
   "type": "module"
 }
